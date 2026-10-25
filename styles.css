@@ -116,7 +116,9 @@ img, svg { display: block; max-width: 100%; }
 .brand-carousel { overflow-x: auto; overflow-y: hidden; margin-top: 20px; overscroll-behavior-inline: contain; scrollbar-width: none; touch-action: pan-x; -webkit-overflow-scrolling: touch; mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
 .brand-carousel::-webkit-scrollbar { display: none; }
 .brand-track { display: flex; width: max-content; animation: brand-marquee 40s linear infinite; }
-.brand-carousel:hover .brand-track { animation-play-state: paused; }
+@media (hover: hover) and (pointer: fine) {
+  .brand-carousel:hover .brand-track { animation-play-state: paused; }
+}
 .brand-grid { display: flex; flex: 0 0 auto; gap: 14px; padding-right: 14px; }
 .brand-logo { display: flex; width: 160px; height: 96px; flex: 0 0 160px; align-items: center; justify-content: center; border: 1px solid #d5dfe5; border-radius: 8px; background: #fff; padding: 17px; }
 .brand-logo img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
