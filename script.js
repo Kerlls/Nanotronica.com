@@ -249,7 +249,7 @@ document.querySelectorAll('.nav-shell').forEach((navShell) => {
   settingsToggle.type = 'button';
   settingsToggle.setAttribute('aria-expanded', 'false');
   settingsToggle.setAttribute('aria-controls', 'settings-panel');
-  settingsToggle.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3h4l.6 2.4a7 7 0 0 1 1.6.9l2.4-.8 2 3.5-1.8 1.8a7 7 0 0 1 0 2.2l1.8 1.8-2 3.5-2.4-.8a7 7 0 0 1-1.6.9L14 21h-4l-.6-2.4a7 7 0 0 1-1.6-.9l-2.4.8-2-3.5 1.8-1.8a7 7 0 0 1 0-2.2L3.4 9l2-3.5 2.4.8a7 7 0 0 1 1.6-.9L10 3Z"/><circle cx="12" cy="12" r="3"/></svg>';
+  settingsToggle.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.75 1.8 1.45 2.3-.2 1 2.1 2.1 1 .2 2.3L20.85 12l-1.45 1.8-.2 2.3-2.1 1-1 2.1-2.3-.2L12 20.45l-1.8-1.45-2.3.2-1-2.1-2.1-1-.2-2.3L3.15 12l1.45-1.8.2-2.3 2.1-1 1-2.1 2.3.2L12 2.75Z"/><circle cx="12" cy="12" r="3.25"/></svg>';
 
   const settingsPanel = document.createElement('div');
   settingsPanel.className = 'settings-panel';
