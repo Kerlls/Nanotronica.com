@@ -115,15 +115,17 @@ img, svg { display: block; max-width: 100%; }
 .brand-compatibility h2 { margin: 9px 0 7px; color: var(--navy); font-size: clamp(1.4rem, 3vw, 1.9rem); }
 .brand-carousel { overflow: hidden; margin-top: 20px; }
 .brand-carousel::-webkit-scrollbar { display: none; }
-.brand-track { display: flex; width: max-content; animation: brand-marquee 32s linear infinite; }
+.brand-track { display: flex; width: max-content; -webkit-animation: brand-marquee 32s linear infinite; animation: brand-marquee 32s linear infinite; }
 @media (hover: hover) {
-  .brand-carousel:hover .brand-track { animation-play-state: paused; }
+  .brand-carousel:hover .brand-track { -webkit-animation-play-state: paused; animation-play-state: paused; }
 }
-.brand-carousel:focus-visible .brand-track { animation-play-state: paused; }
+ .brand-carousel:focus-visible .brand-track { -webkit-animation-play-state: paused; animation-play-state: paused; }
+@-webkit-keyframes brand-marquee { to { -webkit-transform: translateX(-50%); transform: translateX(-50%); } }
 @keyframes brand-marquee { to { transform: translateX(-50%); } }
 .brand-grid { display: flex; flex: 0 0 auto; gap: 14px; padding-right: 14px; }
 .brand-logo { display: flex; width: 160px; height: 96px; flex: 0 0 160px; align-items: center; justify-content: center; border: 1px solid #d5dfe5; border-radius: 8px; background: #fff; padding: 17px; }
 .brand-logo img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
+.brand-logo-nvidia img { object-fit: cover; object-position: left center; }
 .brand-logo picture { display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; }
 .brand-logo:hover { box-shadow: 0 8px 20px rgba(16, 42, 67, .14); }
 .brand-legal { margin: 15px 0 0; color: var(--muted); font-size: .82rem; }
@@ -357,10 +359,9 @@ img, svg { display: block; max-width: 100%; }
   .service-card { min-height: 0; }
   .process-card { min-height: 0; }
   .process-timeline { gap: 20px; }
-  .brand-grid { gap: 10px; }
+  .brand-grid { gap: 10px; padding-right: 10px; }
   .brand-logo { width: 140px; height: 88px; flex-basis: 140px; padding: 13px; }
   .brand-carousel { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; touch-action: pan-x; }
-  .brand-logo-duplicate { visibility: hidden; }
   .brand-heading-row { align-items: flex-start; flex-direction: column; }
   .page-intro { padding: 43px 0 30px; }
   .service-category { display: flex; }
