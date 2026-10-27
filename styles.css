@@ -372,6 +372,14 @@ img, svg { display: block; max-width: 100%; }
   .floating-whatsapp { position: fixed; z-index: 11; right: 16px; bottom: 16px; display: inline-flex; min-height: 50px; align-items: center; justify-content: center; gap: 8px; border: 2px solid #fff; border-radius: 999px; background: #087a39; box-shadow: 0 4px 18px rgba(0,0,0,.2); color: #fff; padding: 0 19px; font-weight: 800; text-decoration: none; }
   .floating-whatsapp:hover { background: #065e2c; color: #fff; }
 }
+@media (max-width: 759.98px) {
+  .brand-carousel { overflow: hidden; touch-action: auto; }
+  .brand-track { display: grid; width: 100%; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; -webkit-animation: none; animation: none; transform: none; }
+  .brand-track .brand-logo { -webkit-animation: none; animation: none; }
+  .brand-group { display: contents; gap: 0; padding-right: 0; }
+  .brand-group[aria-hidden="true"] { display: none; }
+  .brand-logo { width: auto; height: 72px; min-width: 0; flex: none; padding: 8px; }
+}
 @media (max-width: 420px) {
   .brand-mark { width: 42px; height: 42px; }
   .brand-name { max-width: 150px; font-size: .8rem; white-space: normal; }
@@ -387,7 +395,7 @@ img, svg { display: block; max-width: 100%; }
   .process-step h3 { align-self: end; }
   .process-step p { align-self: start; }
 }
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) and (min-width: 760px) {
   .brand-carousel { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; }
   .brand-track { animation: none; }
 }
