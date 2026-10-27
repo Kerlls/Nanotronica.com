@@ -392,6 +392,58 @@ function applyLanguage() {
 
 applyLanguage();
 
+const brandCarousel = document.querySelector('.brand-carousel');
+const brandTrack = document.querySelector('.brand-track');
+if (brandCarousel && brandTrack) {
+  const isSmallScreen = window.matchMedia('(max-width: 760px)');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let autoScrollInterval;
+  let resumeTimeout;
+
+  const stopAutoScroll = () => {
+    window.clearInterval(autoScrollInterval);
+    window.clearTimeout(resumeTimeout);
+    autoScrollInterval = undefined;
+  };
+
+  const startAutoScroll = () => {
+    stopAutoScroll();
+    if (!isSmallScreen.matches || prefersReducedMotion.matches) return;
+
+    autoScrollInterval = window.setInterval(() => {
+      const loopWidth = brandTrack.scrollWidth / 2;
+      if (loopWidth <= 0) return;
+
+      brandCarousel.scrollLeft += 1.3;
+      if (brandCarousel.scrollLeft >= loopWidth) {
+        brandCarousel.scrollLeft -= loopWidth;
+      }
+    }, 30);
+  };
+
+  const pauseForTouch = () => {
+    stopAutoScroll();
+  };
+  const resumeAfterTouch = () => {
+    window.clearTimeout(resumeTimeout);
+    resumeTimeout = window.setTimeout(startAutoScroll, 2500);
+  };
+  const watchMediaQuery = (mediaQuery) => {
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', startAutoScroll);
+    } else {
+      mediaQuery.addListener(startAutoScroll);
+    }
+  };
+
+  brandCarousel.addEventListener('touchstart', pauseForTouch, { passive: true });
+  brandCarousel.addEventListener('touchend', resumeAfterTouch, { passive: true });
+  brandCarousel.addEventListener('touchcancel', resumeAfterTouch, { passive: true });
+  watchMediaQuery(isSmallScreen);
+  watchMediaQuery(prefersReducedMotion);
+  startAutoScroll();
+}
+
 const contactForm = document.querySelector('#contact-form');
 const fallbackLink = document.querySelector('#whatsapp-fallback');
 contactForm?.addEventListener('submit', (event) => {

@@ -116,7 +116,10 @@ img, svg { display: block; max-width: 100%; }
 .brand-carousel { overflow: hidden; margin-top: 20px; }
 .brand-carousel::-webkit-scrollbar { display: none; }
 .brand-track { display: flex; width: max-content; animation: brand-marquee 32s linear infinite; }
-.brand-carousel:hover .brand-track, .brand-carousel:focus-within .brand-track { animation-play-state: paused; }
+@media (hover: hover) {
+  .brand-carousel:hover .brand-track { animation-play-state: paused; }
+}
+.brand-carousel:focus-visible .brand-track { animation-play-state: paused; }
 @keyframes brand-marquee { to { transform: translateX(-50%); } }
 .brand-grid { display: flex; flex: 0 0 auto; gap: 14px; padding-right: 14px; }
 .brand-logo { display: flex; width: 160px; height: 96px; flex: 0 0 160px; align-items: center; justify-content: center; border: 1px solid #d5dfe5; border-radius: 8px; background: #fff; padding: 17px; }
@@ -356,6 +359,8 @@ img, svg { display: block; max-width: 100%; }
   .process-timeline { gap: 20px; }
   .brand-grid { gap: 10px; }
   .brand-logo { width: 140px; height: 88px; flex-basis: 140px; padding: 13px; }
+  .brand-carousel { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; touch-action: pan-x; }
+  .brand-track { animation: none; }
   .brand-heading-row { align-items: flex-start; flex-direction: column; }
   .page-intro { padding: 43px 0 30px; }
   .service-category { display: flex; }
