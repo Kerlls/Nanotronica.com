@@ -360,6 +360,7 @@ img, svg { display: block; max-width: 100%; }
   .brand-grid { gap: 10px; }
   .brand-logo { width: 140px; height: 88px; flex-basis: 140px; padding: 13px; }
   .brand-carousel { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; touch-action: pan-x; }
+  .brand-logo-duplicate { visibility: hidden; }
   .brand-heading-row { align-items: flex-start; flex-direction: column; }
   .page-intro { padding: 43px 0 30px; }
   .service-category { display: flex; }
